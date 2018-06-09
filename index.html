@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Live Stream Player by Shouvik Mitra</title>
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
+    <!-- jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- MediaElementPlayer -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.9/mediaelement-and-player.min.js"></script>
+    <script src="script.js"></script>
+    <!-- Add any other renderers you need; see Use Renderers for more information -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.9/mediaelementplayer.min.css" />
+</head>
+
+<body style="overflow-x: hidden;">
+    <script>
+        // You can use either a string for the player ID (i.e., `player`), 
+        // or `document.querySelector()` for any selector
+        var player = new MediaElementPlayer('player', {
+            pluginPath: "https://cdnjs.com/libraries/mediaelement/",
+            // When using `MediaElementPlayer`, an `instance` argument
+            // is available in the `success` callback
+            success: function (mediaElement, originalNode, instance) {
+                // do things
+            }
+        });
+    </script>
+    <center>
+        <!-- Header -->
+        <h1 style="font-family: 'Exo', sans-serif; margin-top: 10px;">
+            <u>Web Video Player</u>
+        </h1>
+        <p>Implementing MediaElement.js for HLS and RTMP Live Streaming for a good friend!</p>
+        <!-- Ribbon -->
+        <a href="https://github.com/you"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+        <!-- Players -->
+        <div class="row" style="margin-top:5%;">
+            <div class="col-md-6">
+                <caption>HLS Stream</caption>
+                <video width="500" max-width="100%" height="300" class="mejs__player">
+                    <!-- HLS URI -->
+                    <source type="application/x-mpegURL" src="http://www.streambox.fr/playlists/test_001/stream.m3u8" />
+                </video>
+            </div>
+            <div class="col-md-6">
+                <caption>RTMP Stream
+                    <sup> Flash Reqd.</sup>
+                </caption>
+                <video width="500" max-width="100%" height="300" class="mejs__player">
+                    <!-- RTMP URI -->
+                    <source type="video/rtmp" src="rtmp://184.72.239.149/vod/mp4:bigbuckbunny_1500.mp4" />
+                </video>
+            </div>
+        </div>
+
+        <div style="position:absolute; left:0; right:0; bottom: 0; height:55px; background: #e0e0e0">
+            Made with &#10084; and
+            <a href="https://www.mediaelementjs.com/">MediaElement.js</a>
+            <br>
+            <a href="https://iamshouvikmitra.github.io" rel="dofollow">#iamshouvikmitra</a>
+        </div>
+    </center>
+</body>
+
+</html>
